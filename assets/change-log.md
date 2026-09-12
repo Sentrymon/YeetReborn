@@ -1,5 +1,8 @@
 # Change log
 
+## Version 1.1.1
+  + Moved the check for configLib that would cause the mod to not load if ConfigLib was not found
+
 ## Version 1.1
 
 ### Client side changes

@@ -7,7 +7,7 @@
         "Maestro"
     ],
     "description": "Press Y to yeet the focused hotbar item several hundred meters away in a straight line. Ctrl+Y yeets the whole stack.",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "dependencies": {
         "game": "1.22.0"
     }

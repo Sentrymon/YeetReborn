@@ -101,7 +101,7 @@ public class YeetRebornModSystem : ModSystem
         LoadClientConfig(api);
 
         // When ConfigLib is installed it owns these values; our JSON file is the fallback.
-        configLib = ConfigLibBridge.TryCreate(api, YeetSounds.Keys);
+        if (api.ModLoader.IsModEnabled("configlib")) configLib = ConfigLibBridge.TryCreate(api, YeetSounds.Keys);
         configLib?.Bind(clientConfig, () => NormalizeClientConfig(api));
 
         api.Input.RegisterHotKey("yeetitem", "Yeet held item", GlKeys.Y, HotkeyType.CharacterControls);
@@ -152,7 +152,7 @@ public class YeetRebornModSystem : ModSystem
         LoadServerConfig(api);
 
         // When ConfigLib is installed server-side it owns these values; our JSON file is the fallback.
-        ConfigLibBridge.TryCreate(api, YeetSounds.Keys)?.BindServer(serverConfig, () => NormalizeServerConfig(api));
+        if (api.ModLoader.IsModEnabled("configlib")) ConfigLibBridge.TryCreate(api, YeetSounds.Keys)?.BindServer(serverConfig, () => NormalizeServerConfig(api));
 
         api.Network.RegisterChannel("yeetreborn")
             .RegisterMessageType<YeetPacket>()

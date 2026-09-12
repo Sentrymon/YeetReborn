@@ -54,8 +54,6 @@ public sealed class ConfigLibBridge
     [MethodImpl(MethodImplOptions.NoInlining)]
     public static ConfigLibBridge? TryCreate(ICoreAPI api, IReadOnlyCollection<string> soundNames)
     {
-        if (!api.ModLoader.IsModEnabled("configlib")) return null;
-
         var system = api.ModLoader.GetModSystem<ConfigLibModSystem>();
         if (system == null) return null;
 
